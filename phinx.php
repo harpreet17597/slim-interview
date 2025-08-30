@@ -1,5 +1,6 @@
 <?php
 
+// db credentials
 return [
     'paths' => [
         'migrations' => 'database/migrations',

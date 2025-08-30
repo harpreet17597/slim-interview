@@ -9,6 +9,5 @@ class Book extends Model
     protected $table = 'books';
     protected $primaryKey = 'bookId';
     public $timestamps = false;
-
     protected $fillable = ['bookTitle', 'bookAuthor', 'bookPublishYear'];
 }

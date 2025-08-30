@@ -3,7 +3,6 @@
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\App;
-use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\AnalyticsController;
 use App\OAuth\OAuthServerFactory;
@@ -11,7 +10,7 @@ use App\Http\Middleware\AuthMiddleware;
 
 return function (App $app) {
 
-    // Books APIs
+    // books api's
     $app->group('/books', function ($group) {
         $group->post("", [BooksController::class, "store"]);
         $group->get("", [BooksController::class, "index"]);
@@ -19,13 +18,14 @@ return function (App $app) {
         $group->get("/{bookId}/borrows", [BooksController::class, "borrows"]);
     })->add(new AuthMiddleware());
 
-    // Analytics APIs
+    // analytics api's
     $app->group('/analytics', function ($group) {
         $group->get("/latest-borrow-per-book", [AnalyticsController::class, "latestBorrowPerBook"]);
         $group->get("/borrow-rank-per-user", [AnalyticsController::class, "borrowRankPerUser"]);
         $group->get("/book-summary", [AnalyticsController::class, "bookSummary"]);
     });
 
+    // oauth api
     $app->post('/oauth/token', function ($request, $response) {
         $server = OAuthServerFactory::create();
         try {

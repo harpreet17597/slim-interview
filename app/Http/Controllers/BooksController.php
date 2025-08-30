@@ -24,7 +24,7 @@ class BooksController
         if (isset($data['bookPublishYear'])) {
             $data['bookPublishYear'] = (int) $data['bookPublishYear'];
         }
-        // Validation
+        // validation
         $validation = v::key('bookTitle', v::stringType()->notEmpty())
             ->key('bookAuthor', v::optional(v::stringType()))
             ->key('bookPublishYear', v::optional(v::intType()->between(1500, (int)date('Y'))));
@@ -38,7 +38,7 @@ class BooksController
             return $response->withHeader('Content-Type', 'application/json')->withStatus(422);
         }
 
-        //  Save after validation
+        //  save after validation
         $book = Book::create([
             'bookTitle'       => $data['bookTitle'],
             'bookAuthor'      => $data['bookAuthor'] ?? null,
@@ -48,7 +48,6 @@ class BooksController
         $response->getBody()->write($book->toJson());
         return $response->withHeader('Content-Type', 'application/json')->withStatus(201);
     }
-
     public function borrow(Request $request, Response $response, $bookId): Response
     {
         $data = $request->getParsedBody();
@@ -68,7 +67,6 @@ class BooksController
         $response->getBody()->write($borrow->toJson());
         return $response->withHeader('Content-Type', 'application/json')->withStatus(201);
     }
-
     public function borrows(Request $request, Response $response, $bookId): Response
     {
         if (!Book::find($bookId)) {
@@ -82,7 +80,6 @@ class BooksController
         $response->getBody()->write($logs->toJson());
         return $response->withHeader('Content-Type', 'application/json');
     }
-
     private function errorResponse(Response $response, string $message, int $status): Response
     {
         $response->getBody()->write(json_encode(['error' => $message]));

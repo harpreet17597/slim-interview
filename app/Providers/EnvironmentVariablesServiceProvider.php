@@ -11,9 +11,9 @@ class EnvironmentVariablesServiceProvider extends ServiceProvider
     {
         try {
             $env = Dotenv::createImmutable(base_path());
-
             $env->load();
-        } catch (InvalidPathException $e) {}
+        } catch (InvalidPathException $e) {
+        }
     }
 
     public function boot()

@@ -99,7 +99,41 @@ Your app will now be accessible at: [http://localhost:8080](http://localhost:808
 
 ---
 
-### 5. Analytics Endpoints
+## Users
+
+| username | Password     |
+| -------- | ------------ |
+| root     | `secret123`  |
+| john     | `mypassword` |
+
+## Oauth2
+
+| client_id | grant_type |
+| --------- | ---------- |
+| client    | `password` |
+
+# OAuth2 Token API
+
+## Endpoint
+
+`/oauth/token`
+
+## Method
+
+POST
+
+## Request Body
+
+Content-Type: `application/x-www-form-urlencoded`
+
+```text
+grant_type=password
+client_id=client
+username=john
+password=mypassword
+```
+
+### Analytics Endpoints
 
 Purpose: Return the most recent borrow log for each book.
 

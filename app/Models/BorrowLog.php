@@ -9,7 +9,6 @@ class BorrowLog extends Model
     protected $table = 'borrowlog';
     protected $primaryKey = 'borrowLogId';
     public $timestamps = false;
-
     protected $fillable = ['bookId', 'userId', 'borrowLogDateTime'];
 
     // relations

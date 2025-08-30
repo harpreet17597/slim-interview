@@ -11,7 +11,7 @@ final class UserSeeder extends AbstractSeed
         $users = [
             [
                 'userId' => 1,
-                'username' => 'happy',
+                'username' => 'root',
                 'passwordHash' => password_hash('secret123', PASSWORD_BCRYPT),
             ],
             [
