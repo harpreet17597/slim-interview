@@ -152,3 +152,7 @@ Purpose: Return a summary of each book, including:
 ```bash
 3. GET /analytics/book-summary
 ```
+
+# 📬 API Testing with Postman
+
+To test the API endpoints, a Postman collection is included with this project.

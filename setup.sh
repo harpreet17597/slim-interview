@@ -16,6 +16,11 @@ echo "Setting permissions..."
 chmod 600 storage/oauth/private.key
 chmod 644 storage/oauth/public.key
 
+echo "Creating logs directory and requests.log file..."
+mkdir -p logs
+touch logs/requests.log
+chmod 664 logs/requests.log
+
 echo "Running migrations..."
 vendor/bin/phinx migrate
 
