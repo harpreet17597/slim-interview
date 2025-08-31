@@ -1,3 +1,16 @@
-vendor
-storage
-logs
+# Composer dependencies
+/vendor/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Storage and logs
+/storage/
+logs/
+*.log
+
+# Cache
+.cache/
+*.cache
