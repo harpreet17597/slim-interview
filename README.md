@@ -64,6 +64,7 @@ composer install
 ### 3. Run Setup Script
 
 Make the setup script executable and run it:
+The script creates OAuth keys, a logs/requests.log file, runs database migrations, and seeds sample users and OAuth clients.
 
 ```bash
 chmod +x setup.sh
